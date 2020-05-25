@@ -5,6 +5,17 @@
         <title>Yew • Creole Live Editor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="manifest" href="/manifest.json">
+<!--         <script>
+            // register ServiceWorker
+            window.onload = () => {
+                'use strict';
+    
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker
+                            .register('./sw.js');
+                }
+            }
+        </script> -->
     </head>
     <body>
         <script src="/creole-live-editor.js" defer></script>
