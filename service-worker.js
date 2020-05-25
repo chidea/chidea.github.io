@@ -1,6 +1,5 @@
 var cacheName = 'chideas-yew-pwaa';
 var filesToCache = [
-  './',
   './index.html',
   './creole-live-editor.js',
   './1.creole-live-editor.js',
