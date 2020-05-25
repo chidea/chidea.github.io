@@ -1,0 +1,21 @@
+{
+  "name": "ChIdea's WASM application previews",
+  "short_name": "ChideaWASM",
+  "description": "many WASM(yew) based PWA applications",
+  "icons": [
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#654FF0",
+  "shortcuts": [
+    {
+      "name": "WASM Creole Live Editor",
+      "short_name": "WCLE",
+      "description": "WASM(yew) based Creole wiki live preview editor",
+      "url": "/?source=pwa",
+      "icons": []
+    }
+  ]
+}
