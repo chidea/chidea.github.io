@@ -1,9 +1,13 @@
-var cacheName = 'chideas-yew-pwaa-v0.0.3';
+var cacheName = 'chideas-yew-pwaa-v0.0.4';
 var files = [
   '/',
   '1.creole-live-editor.js',
   'creole-live-editor.js',
-  'creole-live-editor.wasm'
+  'creole-live-editor.wasm',
+  '/qr',
+  '/qr/1.app.js',
+  '/qr/app.js',
+  '/qr/app.wasm'
 ];
 
 self.addEventListener('activate', event => {
