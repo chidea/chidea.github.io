@@ -3,7 +3,7 @@ var files = [
   '/',
   '1.creole-live-editor.js',
   'creole-live-editor.js',
-  'creole-live-editor.wasm'
+  'creole-live-editor.wasm',
 ];
 
 self.addEventListener('activate', event => {

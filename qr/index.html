@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Yew • Creole Live Editor</title>
+        <title>Yew • WASM QR Live Generator</title>
         <link rel="manifest" href="/manifest.json">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="application-name" content="WCLE">
-        <meta name="apple-mobile-web-app-title" content="WCLE">
+        <meta name="application-name" content="WQRLG">
+        <meta name="apple-mobile-web-app-title" content="WQRLG">
         <meta name="theme-color" content="#654FF0">
         <meta name="msapplication-navbutton-color" content="#FF9800">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -24,35 +24,6 @@
         </script>
     </head>
     <body>
-        <section id="installBanner" class="install-banner">
-            <button id="installBtn">Install app</button>
-        </section>
-        <script>
-            let deferredPrompt;
-            window.addEventListener('beforeinstallprompt', event => {
-              let banner = document.querySelector('#installBanner');
-              // Prevent Chrome 67 and earlier from automatically showing the prompt
-              event.preventDefault();
-              // Stash the event so it can be triggered later.
-              deferredPrompt = event;
-              // Attach the install prompt to a user gesture
-              document.querySelector('#installBtn').addEventListener('click', event => {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice
-                  .then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                      console.log('User accepted the A2HS prompt');
-                    } else {
-                      console.log('User dismissed the A2HS prompt');
-                    }
-                    banner.style.display = 'none';
-                    deferredPrompt = null;
-                  });
-              });
-              banner.style.display = 'flex';
-            });
-        </script>
-        <section id="app"></section>
         <script src="app.js" defer></script>
     </body>
 </html>

@@ -31,8 +31,8 @@
       ]
     },
     {
-      "name": "WASM QR Generator",
-      "short_name": "WQRG",
+      "name": "WASM QR Live Generator",
+      "short_name": "WQRLG",
       "description": "WASM(yew) based QR Generator",
       "url": "/qr/?source=pwa",
       "icons": [
