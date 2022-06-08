@@ -1,9 +1,8 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Yew • Creole Live Editor</title>
+<!DOCTYPE html><html lang="ko"><head>
+        <meta charset="utf-8">
+        <title>Creole Live Editor with WASM</title>
         <link rel="manifest" href="/manifest.json">
+        <script type="module">import init from '/wasm-creole-live-editor-bc07050527590025.js';init('/wasm-creole-live-editor-bc07050527590025_bg.wasm');</script>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="WCLE">
@@ -16,15 +15,54 @@
 
         <script>
             // register ServiceWorker
-            if ('serviceWorker' in navigator)
-                window.onload = () => {
-                    navigator.serviceWorker
-                            .register('./service-worker.js');
-                }
+            // if ('serviceWorker' in navigator)
+            //     window.onload = () => {
+            //         navigator.serviceWorker
+            //                 .register('./service-worker.js');
+            //     }
         </script>
-    </head>
+        <style>
+          figure {
+            display: inline-block;
+          }
+          .wrapper {
+            display: flex;
+          }
+          .editor, .preview {
+            width: 50%;
+            padding: .5rem;
+          }
+          .editor > textarea {
+            width: 100%;
+            height: calc(100% - 5rem);
+          }
+          table {
+            border-collapse: collapse;
+          }
+          td {
+            border: 1px solid;
+          }
+          ol > li {
+              counter-increment: item;
+          }
+          ol > li:first-child, ol > ol:first-child {
+            counter-reset: item;
+            counter-increment: item;
+          }
+          ol ol > li {
+              display: block;
+          }
+
+          ol ol > li:before {
+              content: counters(item, ".") ". ";
+              margin-left: -20px;
+          }
+        </style>
+    
+<link rel="preload" href="/wasm-creole-live-editor-bc07050527590025_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/wasm-creole-live-editor-bc07050527590025.js"></head>
     <body>
-        <section id="installBanner" class="install-banner">
+        <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>
         </section>
         <script>
@@ -51,8 +89,10 @@
               });
               banner.style.display = 'flex';
             });
-        </script>
-        <section id="creole-live-editor"></section>
-        <script src="/creole-live-editor.js" defer></script>
-    </body>
-</html>
+        </script> -->
+        <!-- <section id="creole-live-editor"></section>
+        <script src="/creole-live-editor.js" defer></script> -->
+        <div id="root"></div>
+    
+
+</body></html>
