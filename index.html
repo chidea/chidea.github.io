@@ -2,7 +2,7 @@
         <meta charset="utf-8">
         <title>Creole Live Editor with WASM</title>
         <link rel="manifest" href="/manifest.json">
-        <script type="module">import init from '/wasm-creole-live-editor-a2473e38db71061f.js';init('/wasm-creole-live-editor-a2473e38db71061f_bg.wasm');</script>
+        <script type="module">import init from '/wasm-creole-live-editor-bfb45057a86e2942.js';init('/wasm-creole-live-editor-bfb45057a86e2942_bg.wasm');</script>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="WCLE">
@@ -14,11 +14,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <script>
-            if ('serviceWorker' in navigator)
-                window.onload = () => {
-                    navigator.serviceWorker
-                            .register('./service-worker.js');
-                }
+            // if ('serviceWorker' in navigator)
+            //     window.onload = () => {
+            //         navigator.serviceWorker
+            //                 .register('./service-worker.js');
+            //     }
         </script>
         <style>
           figure {
@@ -58,10 +58,18 @@
               content: counters(item, ".") ". ";
               margin-left: -20px;
           }
+          @media print {
+            nav {
+              display: none;
+            }
+            h2.view-name {
+              display: none;
+            }
+          }
         </style>
     
-<link rel="preload" href="/wasm-creole-live-editor-a2473e38db71061f_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/wasm-creole-live-editor-a2473e38db71061f.js"></head>
+<link rel="preload" href="/wasm-creole-live-editor-bfb45057a86e2942_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/wasm-creole-live-editor-bfb45057a86e2942.js"></head>
     <body>
         <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>

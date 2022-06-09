@@ -269,7 +269,7 @@ async function load(module, imports) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('wasm-creole-live-editor-a2473e38db71061f_bg.wasm', import.meta.url);
+        input = new URL('wasm-creole-live-editor-bfb45057a86e2942_bg.wasm', import.meta.url);
     }
     const imports = {};
     imports.wbg = {};
