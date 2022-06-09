@@ -203,7 +203,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_18(arg0, arg1, arg2) {
-    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h5b4585483f58b304(arg0, arg1, addHeapObject(arg2));
+    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h829bb39ceaf1190a(arg0, arg1, addHeapObject(arg2));
 }
 
 function __wbg_adapter_21(arg0, arg1) {
@@ -269,7 +269,7 @@ async function load(module, imports) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('wasm-creole-live-editor-f9945b3be66a46ea_bg.wasm', import.meta.url);
+        input = new URL('wasm-creole-live-editor-526fa936e2bbcb44_bg.wasm', import.meta.url);
     }
     const imports = {};
     imports.wbg = {};
@@ -673,15 +673,15 @@ imports.wbg.__wbindgen_closure_wrapper95 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 3, __wbg_adapter_18);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper392 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper386 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 26, __wbg_adapter_21);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper406 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper400 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 49, __wbg_adapter_24);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1467 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper1463 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 54, __wbg_adapter_27);
     return addHeapObject(ret);
 };
