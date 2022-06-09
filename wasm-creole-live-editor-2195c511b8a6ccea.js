@@ -269,7 +269,7 @@ async function load(module, imports) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('wasm-creole-live-editor-a3c48de5e0866d52_bg.wasm', import.meta.url);
+        input = new URL('wasm-creole-live-editor-2195c511b8a6ccea_bg.wasm', import.meta.url);
     }
     const imports = {};
     imports.wbg = {};
@@ -673,15 +673,15 @@ imports.wbg.__wbindgen_closure_wrapper95 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 3, __wbg_adapter_18);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper390 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper392 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 26, __wbg_adapter_21);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper404 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper406 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 49, __wbg_adapter_24);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper1464 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper1467 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 54, __wbg_adapter_27);
     return addHeapObject(ret);
 };
