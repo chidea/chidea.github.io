@@ -1,10 +1,8 @@
-<!doctype html>
-<html lang="ko">
-    <head>
-        <meta charset="utf-8" />
+<!DOCTYPE html><html lang="ko"><head>
+        <meta charset="utf-8">
         <title>Creole Live Editor with WASM</title>
         <link rel="manifest" href="/manifest.json">
-        <link data-trunk rel="rust" data-wasm-opt="s" />
+        <script type="module">import init from '/wasm-creole-live-editor-1d19190dff10bddf.js';init('/wasm-creole-live-editor-1d19190dff10bddf_bg.wasm');</script>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="WCLE">
@@ -73,7 +71,9 @@
             }
           }
         </style>
-    </head>
+    
+<link rel="preload" href="/wasm-creole-live-editor-1d19190dff10bddf_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/wasm-creole-live-editor-1d19190dff10bddf.js"></head>
     <body>
         <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>
@@ -106,5 +106,6 @@
         <!-- <section id="creole-live-editor"></section>
         <script src="/creole-live-editor.js" defer></script> -->
         <div id="root"></div>
-    </body>
-</html>
+    
+
+</body></html>
