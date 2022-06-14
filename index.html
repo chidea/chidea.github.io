@@ -28,8 +28,13 @@
             display: flex;
           }
           .editor, .preview {
-            width: 50%;
             padding: .5rem;
+          }
+          .editor:first-child, .preview:last-child {
+            width: 50%;
+          }
+          .preview:first-child {
+            width: 100%;
           }
           .editor > textarea {
             width: 100%;
