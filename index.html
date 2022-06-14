@@ -2,7 +2,7 @@
         <meta charset="utf-8">
         <title>Creole Live Editor with WASM</title>
         <link rel="manifest" href="/manifest.json">
-        <script type="module">import init from '/wasm-creole-live-editor-1d19190dff10bddf.js';init('/wasm-creole-live-editor-1d19190dff10bddf_bg.wasm');</script>
+        <script type="module">import init from '/wasm-creole-live-editor-c9afc357cc273402.js';init('/wasm-creole-live-editor-c9afc357cc273402_bg.wasm');</script>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="WCLE">
@@ -38,10 +38,22 @@
           table {
             border-collapse: collapse;
           }
+          thead {
+            background: #eee;
+          }
           td {
             padding: .25rem;
             border: 1px solid;
             word-break: keep-all;
+          }
+          pre {
+            display: inline;
+          }
+          div.preview > pre {
+            display: block;
+          }
+          ol, ul {
+            padding-inline-start: 1em;
           }
           /* repeated numbering for ordered list */
           ol > li {
@@ -72,8 +84,8 @@
           }
         </style>
     
-<link rel="preload" href="/wasm-creole-live-editor-1d19190dff10bddf_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/wasm-creole-live-editor-1d19190dff10bddf.js"></head>
+<link rel="preload" href="/wasm-creole-live-editor-c9afc357cc273402_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/wasm-creole-live-editor-c9afc357cc273402.js"></head>
     <body>
         <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>
@@ -103,8 +115,6 @@
               banner.style.display = 'flex';
             });
         </script> -->
-        <!-- <section id="creole-live-editor"></section>
-        <script src="/creole-live-editor.js" defer></script> -->
         <div id="root"></div>
     
 
