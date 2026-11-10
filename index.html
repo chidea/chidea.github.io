@@ -7,7 +7,7 @@
         
 <script type="module">
 import init, * as bindings from '/wasm-creole-live-editor-a00ac92963007ff1.js';
-const wasm = await init({ module_or_path: '/wasm-creole-live-editor-d807d56f4a13dc3a_bg.wasm' });
+const wasm = await init({ module_or_path: '/wasm-creole-live-editor-d3c9659683c2b7a5_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -50,10 +50,20 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
           }
           .wrapper {
             display: flex;
+            gap: .5rem;
           }
           .editor, .preview {
-            width: 50%;
+            box-sizing: border-box;
             padding: .5rem;
+          }
+          /* edit mode: half the row each, minus half the gutter — border-box keeps the
+             padding inside that, so editor + preview fill the row exactly */
+          .editor, .wrapper > .preview {
+            width: calc(50% - .25rem);
+          }
+          /* view mode renders no .wrapper, so the preview owns the whole row */
+          .preview {
+            width: 100%;
           }
           .editor > textarea {
             width: 100%;
@@ -132,7 +142,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
             }
           }
         </style>
-    <link rel="modulepreload" href="/wasm-creole-live-editor-a00ac92963007ff1.js" crossorigin="anonymous" integrity="sha384-kW5U/yQB64E64m99MB3PMx/hMvq+J8NyQi7SZ5TY5SnmbVFYCOTl9Khfxp/4el2a"><link rel="preload" href="/wasm-creole-live-editor-d807d56f4a13dc3a_bg.wasm" crossorigin="anonymous" integrity="sha384-81OJiQl2WRML/VbHChhYr9HpYZ1kFlp/q7ycrLC2MyFNmFS18brpIjB9wufglec3" as="fetch" type="application/wasm"></head>
+    <link rel="modulepreload" href="/wasm-creole-live-editor-a00ac92963007ff1.js" crossorigin="anonymous" integrity="sha384-kW5U/yQB64E64m99MB3PMx/hMvq+J8NyQi7SZ5TY5SnmbVFYCOTl9Khfxp/4el2a"><link rel="preload" href="/wasm-creole-live-editor-d3c9659683c2b7a5_bg.wasm" crossorigin="anonymous" integrity="sha384-xSNF/PcK8+1mj3ZAorJYuCng9e4fTuy1nunMTtaNPVBjid/GTNcJntVMTdSABPSR" as="fetch" type="application/wasm"></head>
     <body>
         <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>

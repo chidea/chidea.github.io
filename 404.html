@@ -1,8 +1,28 @@
-<!DOCTYPE html><html lang="ko"><head>
-        <meta charset="utf-8">
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
         <title>Creole Live Editor with WASM</title>
         <link rel="manifest" href="/manifest.json">
-        <script type="module">import init from '/wasm-creole-live-editor-910d668ca6c0f6bd.js';init('/wasm-creole-live-editor-910d668ca6c0f6bd_bg.wasm');</script>
+        
+<script type="module">
+import init, * as bindings from '/wasm-creole-live-editor-a00ac92963007ff1.js';
+const wasm = await init({ module_or_path: '/wasm-creole-live-editor-d3c9659683c2b7a5_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+        <!-- Trunk copies nothing out of static/ by itself; these hooks are what put the PWA
+             assets beside index.html in dist/ (and therefore into bu.ps1's copy to the Pages
+             checkout). static/index.html is a dead Yew-era page and is deliberately not
+             copied: it would overwrite the generated index.html. -->
+        
+        
+        
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="WCLE">
@@ -14,11 +34,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <script>
-            // if ('serviceWorker' in navigator)
-            //     window.onload = () => {
-            //         navigator.serviceWorker
-            //                 .register('./service-worker.js');
-            //     }
+            // The offline app shell; static/service-worker.js explains the caching policy.
+            // Registered from the site root so its scope covers every route (/w/, /e/, /list).
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker
+                        .register('/service-worker.js', { scope: '/' })
+                        .catch((e) => console.warn('service worker:', e));
+                });
+            }
         </script>
         <style>
           figure {
@@ -26,14 +50,19 @@
           }
           .wrapper {
             display: flex;
+            gap: .5rem;
           }
           .editor, .preview {
+            box-sizing: border-box;
             padding: .5rem;
           }
-          .editor:first-child, .preview:last-child {
-            width: 50%;
+          /* edit mode: half the row each, minus half the gutter — border-box keeps the
+             padding inside that, so editor + preview fill the row exactly */
+          .editor, .wrapper > .preview {
+            width: calc(50% - .25rem);
           }
-          .preview:first-child {
+          /* view mode renders no .wrapper, so the preview owns the whole row */
+          .preview {
             width: 100%;
           }
           .editor > textarea {
@@ -79,6 +108,31 @@
           img {
             max-width: 100%;
           }
+
+          /* /list tree. Open/close is the native <details> disclosure, so no
+             rule here is interactive and no script is involved. */
+          ul.tree, ul.tree ul {
+            list-style: none;
+            padding-inline-start: 1.1em;
+          }
+          ul.tree {
+            padding-inline-start: 0;
+          }
+          .tree summary {
+            cursor: pointer;
+          }
+          .tree summary > a {
+            font-weight: 600;
+          }
+          .tree .doc {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          p.hint {
+            color: #777;
+            font-size: .9em;
+          }
           @media print {
             nav {
               display: none;
@@ -88,9 +142,7 @@
             }
           }
         </style>
-    
-<link rel="preload" href="/wasm-creole-live-editor-910d668ca6c0f6bd_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/wasm-creole-live-editor-910d668ca6c0f6bd.js"></head>
+    <link rel="modulepreload" href="/wasm-creole-live-editor-a00ac92963007ff1.js" crossorigin="anonymous" integrity="sha384-kW5U/yQB64E64m99MB3PMx/hMvq+J8NyQi7SZ5TY5SnmbVFYCOTl9Khfxp/4el2a"><link rel="preload" href="/wasm-creole-live-editor-d3c9659683c2b7a5_bg.wasm" crossorigin="anonymous" integrity="sha384-xSNF/PcK8+1mj3ZAorJYuCng9e4fTuy1nunMTtaNPVBjid/GTNcJntVMTdSABPSR" as="fetch" type="application/wasm"></head>
     <body>
         <!-- <section id="installBanner" class="install-banner">
             <button id="installBtn">Install app</button>
@@ -121,6 +173,5 @@
             });
         </script> -->
         <div id="root"></div>
-    
-
-</body></html>
+    </body>
+</html>
